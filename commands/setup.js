@@ -28,12 +28,9 @@ module.exports = {
     // ==========================
     // ROLES
     // ==========================
-
     const owner = await guild.roles.create({
-      name: "👑 Owner",
-      color: "#ff0000",
-      permissions: [PermissionFlagsBits.Administrator]
-    });
+  name: "👑 Owner"
+});
 
     const admin = await guild.roles.create({
       name: "⚙️ Admin",
