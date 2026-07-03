@@ -186,3 +186,217 @@ module.exports = {
     });
 
     // Continue in Part 2...
+    // ==========================
+    // SMP CHANNELS
+    // ==========================
+
+    const ipChannel = await guild.channels.create({
+      name: "🌍server-ip",
+      type: ChannelType.GuildText,
+      parent: smp.id
+    });
+
+    const tradingChannel = await guild.channels.create({
+      name: "💰trading",
+      type: ChannelType.GuildText,
+      parent: smp.id
+    });
+
+    const showcaseChannel = await guild.channels.create({
+      name: "🏠build-showcase",
+      type: ChannelType.GuildText,
+      parent: smp.id
+    });
+
+    const leaderboardChannel = await guild.channels.create({
+      name: "🏆leaderboards",
+      type: ChannelType.GuildText,
+      parent: smp.id
+    });
+
+    const giveawayChannel = await guild.channels.create({
+      name: "🎁giveaways",
+      type: ChannelType.GuildText,
+      parent: smp.id
+    });
+
+    // ==========================
+    // SUPPORT
+    // ==========================
+
+    const ticketChannel = await guild.channels.create({
+      name: "🎫create-ticket",
+      type: ChannelType.GuildText,
+      parent: support.id
+    });
+
+    const reportChannel = await guild.channels.create({
+      name: "🚨report-player",
+      type: ChannelType.GuildText,
+      parent: support.id
+    });
+
+    // ==========================
+    // STAFF CHANNELS
+    // ==========================
+
+    await guild.channels.create({
+      name: "📋staff-chat",
+      type: ChannelType.GuildText,
+      parent: staff.id
+    });
+
+    await guild.channels.create({
+      name: "📊logs",
+      type: ChannelType.GuildText,
+      parent: staff.id
+    });
+
+    await guild.channels.create({
+      name: "🛡️mod-chat",
+      type: ChannelType.GuildText,
+      parent: staff.id
+    });
+
+    // ==========================
+    // VOICE
+    // ==========================
+
+    await guild.channels.create({
+      name: "🎤 General",
+      type: ChannelType.GuildVoice
+    });
+
+    await guild.channels.create({
+      name: "🎮 Gaming",
+      type: ChannelType.GuildVoice
+    });
+
+    await guild.channels.create({
+      name: "😴 AFK",
+      type: ChannelType.GuildVoice
+    });
+
+    // ==========================
+    // SEND DEFAULT MESSAGES
+    // ==========================
+
+    await ipChannel.send({
+      content:
+`# 🌍 TIX SMP
+
+**Server IP**
+play.tixsmp.net
+
+**Version**
+1.21+
+
+Enjoy your stay!`
+    });
+
+    await tradingChannel.send({
+      content:
+`# 💰 Trading
+
+Trade fairly.
+
+No scams.
+No dupes.
+Respect other players.`
+    });
+
+    await showcaseChannel.send({
+      content:
+`# 🏠 Build Showcase
+
+Show off your best creations!
+
+Use screenshots and keep chat positive.`
+    });
+
+    await leaderboardChannel.send({
+      content:
+`# 🏆 Leaderboards
+
+Top Kills
+Top Balance
+Top Playtime
+
+(Coming Soon)`
+    });
+
+    await giveawayChannel.send({
+      content:
+`# 🎁 Giveaways
+
+All giveaways will be posted here.
+
+Good luck!`
+    });
+
+    await ticketChannel.send({
+      content:
+`# 🎫 Support
+
+Open a ticket by pinging staff or using the future ticket bot.`
+    });
+
+    await reportChannel.send({
+      content:
+`# 🚨 Report a Player
+
+Explain:
+
+• Username
+• What happened
+• Evidence`
+    });
+
+    // Continue in Part 3...    
+    const welcomeChannel = guild.channels.cache.find(
+      c => c.name === "👋welcome"
+    );
+
+    const rulesChannel = guild.channels.cache.find(
+      c => c.name === "📜rules"
+    );
+
+    if (welcomeChannel) {
+      await welcomeChannel.send({
+        content: `# 👋 Welcome to TIX SMP!
+
+Welcome to **TIX SMP**!
+
+Please:
+✅ Read the rules
+✅ Have fun
+✅ Respect everyone
+
+Enjoy your adventure!`
+      });
+    }
+
+    if (rulesChannel) {
+      await rulesChannel.send({
+        content: `# 📜 TIX SMP Rules
+
+1. Be respectful
+2. No cheating
+3. No exploiting bugs
+4. No spam
+5. No hate speech
+6. Listen to staff
+7. Keep chat appropriate
+8. Have fun!
+
+Breaking these rules may result in punishment.`
+      });
+    }
+
+    await interaction.followUp({
+      content:
+        "✅ **TIX SMP setup complete!**\n\nRoles, channels and categories have been created successfully."
+    });
+
+  }
+};
