@@ -44,16 +44,6 @@ module.exports = {
           PermissionFlagsBits.ManageRoles
         ]
       });
-
-      const moderator = await guild.roles.create({
-        name: "🛡️ Moderator",
-        permissions: [
-          PermissionFlagsBits.KickMembers,
-          PermissionFlagsBits.BanMembers,
-          PermissionFlagsBits.ManageMessages
-        ]
-      });
-
       const member = await guild.roles.create({
         name: "👤 Member"
       });
