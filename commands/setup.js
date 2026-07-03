@@ -79,11 +79,6 @@ module.exports = {
             id: admin.id,
             allow: [PermissionFlagsBits.ViewChannel]
           },
-          {
-            id: moderator.id,
-            allow: [PermissionFlagsBits.ViewChannel]
-          }
-        ]
       });
       // ==========================
       // INFORMATION CHANNELS
