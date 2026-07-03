@@ -52,8 +52,7 @@ module.exports = {
       color: "#0099ff",
       permissions: [
         PermissionFlagsBits.KickMembers,
-        PermissionFlagsBits.ManageMessages,
-        PermissionFlagsBits.TimeoutMembers
+        PermissionFlagsBits.ManageMessages
       ]
     });
 
